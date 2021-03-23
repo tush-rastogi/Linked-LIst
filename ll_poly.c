@@ -1,5 +1,3 @@
-// C program of polynomial linked list(Multiplication and addition of two polynomial singly linked list
-
 #include <stdio.h>
 #include <stdlib.h>
 struct node {

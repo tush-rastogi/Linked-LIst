@@ -1,5 +1,3 @@
-// C program to merge two sorted linked list
-
 #include <stdio.h>
 #include <stdlib.h>
 struct node {

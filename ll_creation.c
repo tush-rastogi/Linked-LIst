@@ -1,4 +1,4 @@
-// C program of singly linked list
+// singly linked list
 #include<stdio.h>
 #include<stdlib.h>
 struct node {
