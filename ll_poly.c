@@ -1,5 +1,4 @@
-// C program of polynomial linked list(Multiplication and addition of two polynomial singly linked list
-
+// C program of polynomial linked list(Multiplication and addition of two polynomial)
 #include <stdio.h>
 #include <stdlib.h>
 struct node {
@@ -22,18 +21,18 @@ int main()
      printf("Create first polynomial\n");
      do{
         start1=insert(start1);
-         display(start1);
+         //display(start1);
      
-        printf("Enter another term\n");
+        printf("Enter another term (y/n)\n");
         scanf(" %c",&ch);
      }while(ch=='y'||ch=='Y'); 
      
      printf("Create second polynomial\n");
      do{
         start2=insert(start2);
-         display(start2);
+       //  display(start2);
      
-        printf("Enter another term\n");
+        printf("Enter another term (y/n)\n");
         scanf(" %c",&ch);
      }while(ch=='y'||ch=='Y'); 
    
@@ -43,9 +42,35 @@ int main()
          display(start3);
          printf("Multiply two polynomials\n");
          start4=multi(start4);
-         display(start4);
+         
         
-      
+            struct node *p,*q,*temp;
+
+         for(p=start4,q=p->link;p!=NULL;)
+          {
+
+             if(p->e==q->e)
+             {
+               
+                 p->c=p->c+q->c;
+                p->e=q->e;
+                  temp=q;
+                   p->link=q->link;
+                    
+                    free(temp);
+                  
+             
+             }
+
+
+             else
+             p=p->link;
+
+
+
+           }      
+    display(start4);
+
      return 0;
 
 }
@@ -94,8 +119,6 @@ struct node *insert(struct node *start)
          
           return start;
 
-
-
 }
 
 
@@ -103,7 +126,8 @@ void display(struct node *start)
 {
 
    struct node *p=start;
-   
+      
+     
      while(p!=NULL)
      {
         printf("%d %d\n",p->c,p->e);
@@ -195,7 +219,7 @@ struct node *insert_a(struct node *start,int coe,int ex)
 
 
 }
-struct node *multi(struct node *start)
+struct node *multi(struct node *start) // Function to multiply two polynomials
 {
 
        struct node *p=start1,*q=start2;
@@ -213,7 +237,7 @@ struct node *multi(struct node *start)
           q=start2;
          }
          
-        return start;
+      return start;
        }
 
 struct node *insert_m(struct node *start,int coe,int exp)
@@ -242,6 +266,8 @@ struct node *insert_m(struct node *start,int coe,int exp)
             p->link=temp;
             
             return start;
+
+
 }
 
 

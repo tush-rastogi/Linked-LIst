@@ -18,10 +18,11 @@ struct node *reverse(struct node *);
 int main(){
 
        char ch;
+       printf("First create the doubly linked list\n");
        do{
        
            start=create(start);
-            printf("Want to add more node\n");
+            printf("Want to add more node (y/n)\n");
             scanf(" %c",&ch);
             
             }while(ch=='y'||ch=='Y');
@@ -34,7 +35,7 @@ int main(){
        
            start=insert(start);
                display(start);
-            printf("Want to insert more node\n");
+            printf("Want to insert more node (y/n)\n");
             scanf(" %c",&ch);
             
             }while(ch=='y'||ch=='Y');
@@ -46,7 +47,7 @@ int main(){
        
            start=delete(start);
                display(start);
-            printf("Want to delete more node\n");
+            printf("Want to delete more node (y/n)\n");
             scanf(" %c",&ch);
             
             }while(ch=='y'||ch=='Y');
@@ -59,7 +60,7 @@ int main(){
 
    return 0;
 }
-struct node *create(struct node *start)
+struct node *create(struct node *start) // Function to create the doubly linked list
 {
 
       struct node *temp=malloc(sizeof(struct node *));
@@ -90,7 +91,7 @@ struct node *create(struct node *start)
           return start;
 
 }
-void display(struct node *start)
+void display(struct node *start) // Function to display the elements
 {
     if(start==NULL)
     {
@@ -99,8 +100,10 @@ void display(struct node *start)
         
        }
        
+           printf("Elements of doubly linked list\n");
+
        struct node *p=start;
-       printf("Element of list are\n");
+   
        
        while(p!=NULL)
        {
@@ -113,9 +116,7 @@ void display(struct node *start)
     
 }
 
-
-
-struct node *insert(struct node *start)
+struct node *insert(struct node *start) // Function to insert the node 
 {
    int pos,data,i;
    printf("Enter the position and element of a node to insert\n");
@@ -151,22 +152,14 @@ struct node *insert(struct node *start)
                   
                   }
                   
-              
-              
               }
-              
-              
-              
               
                 printf("Element is less than %d\n",pos);
                 
                 return start;
               
-              
-              
-              
               }
-       struct node *delete(struct node *start)
+       struct node *delete(struct node *start) // Function to delete the node from doubly linked list
        {
        
               if(start==NULL)
@@ -227,7 +220,7 @@ struct node *insert(struct node *start)
        
        }
        
-       struct node *reverse(struct node *start)
+       struct node *reverse(struct node *start) //Function to reverse the doubly linked list
        {
        
            struct node *p=start,*q,*t,*prev;

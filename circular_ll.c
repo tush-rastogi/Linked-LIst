@@ -14,7 +14,7 @@ struct node {
    struct node *insert(struct node *);
    struct node *delete(struct node *);
   
-  
+  int x=0;
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
         do {
         
             last=create(last);
-            printf("Want to add more node\n");
+            printf("Want to add more node (y/n)\n");
             scanf(" %c",&ch);
             
             
@@ -34,7 +34,7 @@ int main()
            do{
            last=insert(last);
            display(last);
-           printf("Want to insert more node\n");
+           printf("Want to insert more node (y/n)\n");
             scanf(" %c",&ch);
              
             
@@ -42,11 +42,13 @@ int main()
    
              
             display(last);
-            
+           
+              printf("Delete the node from circular linked list\n");
+              
             do{
                  last=delete(last);
                  display(last);
-           printf("Want to delete more node\n");
+           printf("Want to delete more node (y/n)\n");
             scanf(" %c",&ch);
              
             
@@ -61,9 +63,10 @@ int main()
      return 0;
 
 }
- struct node *create(struct node *last)
+ struct node *create(struct node *last) // Function to create a linked list
  {
  
+        x++;
      struct node *temp=malloc(sizeof(struct node));
      int e;
       printf("Enter the element\n");
@@ -85,7 +88,7 @@ int main()
  
  } 
  
- void display(struct node *last)
+ void display(struct node *last) // Function to display a linked list
  {
   
     if(last==NULL)
@@ -111,7 +114,7 @@ int main()
  
  }
  
- struct node *reverse(struct node *last)
+ struct node *reverse(struct node *last) // Function to reverse a circular linked list
  {
  
        struct node *next,*prev=last,*p=last->link;
@@ -134,13 +137,21 @@ int main()
  
  
  
- struct node *insert(struct node *last)
+ struct node *insert(struct node *last)  // Function to insert node at specific position in circular linked list
  {
  
      int pos,e;
      printf("Enter the pos and element to enter\n");
      scanf("%d%d",&pos,&e);
      
+       if(pos>x+1)
+       {
+       
+       printf("Elements are less than %d\n",pos);
+       return last;
+       }
+       
+    
      struct node *temp=malloc(sizeof(struct node));
      temp->info=e;
      
@@ -183,14 +194,13 @@ int main()
         
         }
  
-     printf("Elements are less than %d\n",pos);
-   return last;
  
  }
  
- struct node *delete(struct node *last)
+ struct node *delete(struct node *last) // Function to delete node from specific position of circular linked list
  {
  
+       x--;
      int pos;
      printf("Enter the position of node to be deleted\n");
      scanf("%d",&pos);
