@@ -43,10 +43,10 @@ int main()
          printf("Multiply two polynomials\n");
          start4=multi(start4);
          
-        
+         // display(start4);
             struct node *p,*q,*temp;
 
-         for(p=start4,q=p->link;p!=NULL;)
+         for(p=start4,q=p->link;q!=NULL;)
           {
 
              if(p->e==q->e)
@@ -56,7 +56,7 @@ int main()
                 p->e=q->e;
                   temp=q;
                    p->link=q->link;
-                    
+                     q=q->link;
                     free(temp);
                   
              
@@ -64,9 +64,10 @@ int main()
 
 
              else
+             {
              p=p->link;
-
-
+             q=p->link;
+            }
 
            }      
     display(start4);
