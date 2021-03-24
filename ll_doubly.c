@@ -1,3 +1,5 @@
+// C program of doubly linked list
+
 #include<stdio.h>
 #include<stdlib.h>
 struct node{

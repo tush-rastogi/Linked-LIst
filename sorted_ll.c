@@ -1,4 +1,4 @@
-/* This program contains soting of list by echnaging of data and link and merging of two sorted list*/
+// C program of sorting of linked list(both by changing data and link parts)
 
 #include<stdio.h>
 #include<stdlib.h>
